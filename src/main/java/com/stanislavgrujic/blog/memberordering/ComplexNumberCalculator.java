@@ -123,6 +123,11 @@ public class ComplexNumberCalculator {
         private int imaginary;
 
         // constructors
+        // this constructor is not specifically useful, it is added only as a showcase
+        private ComplexNumber(int real) {
+            this(real, 0);
+        }
+
         private ComplexNumber(int real, int imaginary) {
             this.real = real;
             this.imaginary = imaginary;
