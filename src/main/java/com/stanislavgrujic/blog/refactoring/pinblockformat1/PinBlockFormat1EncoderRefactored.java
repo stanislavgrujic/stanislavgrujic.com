@@ -14,6 +14,9 @@ public class PinBlockFormat1EncoderRefactored {
 
     private static final String FORMAT_1_CONTROL_CHAR = "1";
 
+    private static final int MIN_PIN_LENGTH = 4;
+    private static final int MAX_PIN_LENGTH = 12;
+
     private static final int MAX_PIN_BLOCK_LENGTH = 16; // characters
 
     private static final byte PIN_LENGTH_MASK = (byte) 15;
@@ -27,7 +30,7 @@ public class PinBlockFormat1EncoderRefactored {
     public static byte[] encode(String plainPin) {
         int pinLength = plainPin.length();
 
-        if (pinLength < 4 || pinLength > 12) {
+        if (pinLength < MIN_PIN_LENGTH || pinLength > MAX_PIN_LENGTH) {
             throw new InvalidPinLengthException();
         }
 
